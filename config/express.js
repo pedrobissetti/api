@@ -9,14 +9,14 @@ module.exports = () => {
     // Define the port *before* using it
     const port = process.env.PORT || config.get('server.port'); // Get from config or env
 
-    app.get('/user/:id', (req, res) => {
-        console.log("fetching user with id: " + req.params.id);
+    app.get('/user/', (req, res) => {
+        // console.log("fetching user with id: " + req.params.id);
 
         const conn = mysql.createConnection({
             host: 'localhost', // Or your host
             user: 'root', // Or your user
             password: process.env.MYSQL_PASSWORD,  // From environment variable
-            database: 'your_database_name' // Replace with your database name
+            database: 'lbta_mysql' // Replace with your database name
         });
 
         conn.connect((err) => { // Added connection check
